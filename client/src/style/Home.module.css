@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+h1,
+p {
+    margin: 0;
+    color: black;
+}
+
+.container_fluid {
+    background-image: url('../assets/images/bghome.jpg');
+    background-size: cover;
+    background-position: center;
+    color: black;
+}
+
+.btn-warning {
+    padding: 10px 30px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    font-weight: bold;
+}
