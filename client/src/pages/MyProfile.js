@@ -32,8 +32,10 @@ const MyProfile = () => {
     return (
         <div style={profileStyle} className='d-flex flex-column justify-content-center align-items-center'>
             <h2>My Profile</h2>
-            <p><strong>Name:</strong> {user.name}</p>
-            <p><strong>Email:</strong> {user.email}</p>
+            <div className='text-start'>
+                <p ><strong>Name:</strong> {user.name}</p>
+                <p><strong>Email:</strong> {user.email}</p>
+            </div>
             <Link to={'/dashboard/editprofile/:id'}>
                 <button className="btn btn-primary">Edit Profile</button>
             </Link>

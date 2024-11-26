@@ -54,14 +54,14 @@ const AllUsers = () => {
     }, []);
 
     return (
-        <div className="d-flex flex-column justify-content-center text-lg-center" style={userStyle}>
+        <div className="d-flex flex-column justify-content-center text-lg-center align-items-center" style={userStyle}>
             <h1 className='ms-5 ms-lg-0'>All Users</h1>
-            <div className="d-lg-flex flex-wrap justify-content-evenly ">
+            <div className="d-lg-flex flex-wrap justify-content-center  ">
                 {users.map((user) => (
-                    <div className=" col-4 m-0 border border-warning rounded m-2" key={user._id}>
-                        <div className="card mb-3">
-                            <div className="card-body ">
-                                <h5 className="card-title">Name:{user.name}</h5>
+                    <div className=" col-lg-4 m-0 border border-warning rounded m-2 " key={user._id}>
+                        <div className="card d-flex justfy-content-center align-items-center">
+                            <div className="card-body text-start">
+                                <h5 className="card-title">Name: {user.name}</h5>
                                 <p className="card-text">Email: {user.email}</p>
                                 <p className="card-text">Role:
                                     {user.role == 0 ? (<span>User</span>) : (<span>Admin</span>)}</p>

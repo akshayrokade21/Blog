@@ -3,12 +3,13 @@ import { API_URL } from '../utils/Common-utils';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useParams, useNavigate } from 'react-router-dom';
+import background from '../assets/images/bgall1.jpg';
 
 const EditUser = () => {
     const [formData, setFormData] = useState({});
-    const user = useParams()
-    const userId = user.id
-    const navigate = useNavigate()
+    const user = useParams();
+    const userId = user.id;
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -37,33 +38,84 @@ const EditUser = () => {
                 },
             });
             toast.success('User updated successfully');
-            navigate('/dashboard/allusers')
+            navigate('/dashboard/allusers');
         } catch (error) {
             console.error(error);
             toast.error('Error updating user');
         }
     };
 
+    const userStyle = {
+        backgroundImage: `url(${background})`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+        minHeight: '90vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        color: '#fff',
+        padding: '20px',
+    };
+
+    const formStyle = {
+        background: 'rgba(0, 0, 0, 0.7)',
+        padding: '20px',
+        borderRadius: '8px',
+        boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
+        maxWidth: '400px',
+        width: '100%',
+        color: '#fff',
+    };
+
+    const inputStyle = {
+        width: '100%',
+        padding: '10px',
+        margin: '10px 0',
+        border: '1px solid #ccc',
+        borderRadius: '4px',
+        fontSize: '14px',
+    };
+
+    const labelStyle = {
+        fontSize: '14px',
+        marginBottom: '5px',
+        display: 'block',
+    };
+
+    const buttonStyle = {
+        padding: '10px 20px',
+        backgroundColor: '#007bff',
+        border: 'none',
+        borderRadius: '4px',
+        color: '#fff',
+        fontSize: '14px',
+        cursor: 'pointer',
+        width: '100%',
+    };
+
     return (
-        <div >
-            <h5>Edit User</h5>
-            <form>
+        <div style={userStyle}>
+            <h3 className='text-black'>Edit User</h3>
+            <form style={formStyle}>
                 <div>
-                    <label>Name</label>
-                    <input type="text" name="name" value={formData.name} onChange={handleChange} />
+                    <label style={labelStyle}>Name</label>
+                    <input type="text" name="name" value={formData.name} onChange={handleChange} style={inputStyle} />
                 </div>
                 <div>
-                    <label>Email</label>
-                    <input type="email" name="email" value={formData.email} onChange={handleChange} />
+                    <label style={labelStyle}>Email</label>
+                    <input type="email" name="email" value={formData.email} onChange={handleChange} style={inputStyle} />
                 </div>
                 <div>
-                    <label>Role</label>
-                    <select name="role" value={formData.role} onChange={handleChange}>
+                    <label style={labelStyle}>Role</label>
+                    <select name="role" value={formData.role} onChange={handleChange} style={inputStyle}>
                         <option value="0">User</option>
                         <option value="1">Admin</option>
                     </select>
                 </div>
-                <button type="button" onClick={handleSubmit}>
+                <button type="button" onClick={handleSubmit} style={buttonStyle}>
                     Save
                 </button>
             </form>

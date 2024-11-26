@@ -3,6 +3,7 @@ import { API_URL } from '../utils/Common-utils';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import background from '../assets/images/bgall1.jpg'
 
 const EditProfile = () => {
     const [user, setUser] = useState({ name: '', email: '' });
@@ -39,8 +40,17 @@ const EditProfile = () => {
         }
     };
 
+    const userStyle = {
+        backgroundImage: `url(${background})`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+        minHeight: '90vh'
+    }
+
     return (
-        <div>
+        <div style={userStyle} className='d-flex flex-column justify-content-center align-items-center'>
             <h2>Edit Profile</h2>
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
